@@ -1,0 +1,7 @@
+{
+  "name": "Canteen-Mobile-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
