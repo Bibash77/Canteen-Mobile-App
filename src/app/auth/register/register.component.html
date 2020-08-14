@@ -1,0 +1,69 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="login">
+  <ion-fab *ngIf="errorList.length > 0" vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="showError()">
+      <ion-icon name="arrow-Up"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <img class="logo" src="assets/img/logo-icon.png">
+  <form (submit)="onSubmit()" [formGroup]="registerForm">
+    <div class="ion-padding">
+      <ion-list class="ion-no-margin ion-no-padding" lines="full">
+        <ion-item>
+          <ion-label position="floating" color="primary">Full Name
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="fullName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" color="primary">Username
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="userName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" color="primary">Batch
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-select formControlName="batch">
+            <ion-select-option *ngFor="let batch of batchList"
+                               [value]="batch">{{batch}}</ion-select-option>
+          </ion-select>
+
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" color="primary">Number
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="number" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" color="primary"> Password
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" color="primary">Confirm Password
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input formControlName="confirmPassword" required type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="ion-padding">
+      <ion-button class="ion-no-margin" expand="block" type="submit">Submit</ion-button>
+    </div>
+  </form>
+</ion-content>

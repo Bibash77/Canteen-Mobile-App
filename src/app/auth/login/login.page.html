@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="login">
+  <img class="logo" src="assets/img/logo-icon.png">
+
+  <form [formGroup]="loginForm" (submit)="onLogin()">
+    <div class="ion-padding">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="floating">Username <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required type="text" formControlName="userName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Log In</ion-button>
+    </div>
+  </form>
+    <!--forget-->
+    <ion-row class="ion-justify-content-evenly">
+      <p>{{"FORGOT PASSWORD ?"}}</p>
+    </ion-row>
+    <!--go to registration-->
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin" color="danger" (click)="onRegister()">Register</ion-button>
+    </div>
+
+
+
+</ion-content>
