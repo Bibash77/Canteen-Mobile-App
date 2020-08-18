@@ -1,5 +1,5 @@
 <ion-header translucent>
-  <ion-toolbar [color]="modalTitle">
+  <ion-toolbar [color]="status">
     <ion-title>{{(modalTitle == 'danger' ? 'error' : modalTitle) |titlecase}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">Close</ion-button>

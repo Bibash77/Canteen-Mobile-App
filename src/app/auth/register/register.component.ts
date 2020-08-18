@@ -14,7 +14,7 @@ import {Router} from '@angular/router';
 import {ToastService} from '../../@core/common-service/toast.service';
 import {Action} from 'rxjs/internal/scheduler/Action';
 import {ActionConstants} from '../../@core/constatnts/ActionConstants';
-import {LoaderService} from "../../@core/Loader.service";
+import {LoaderService} from '../../@core/Loader.service';
 
 @Component({
   selector: 'app-register',
@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
   batchList = [];
 
   constructor(private formBuilder: FormBuilder,
-              private modalController: ModalController,
               private modalService: ModalService,
               private userService: UserService,
               private router: Router,
@@ -45,10 +44,11 @@ export class RegisterComponent implements OnInit {
     const currentYear = new Date().getFullYear().toString();
     this.registerForm = this.formBuilder.group({
       userName: [undefined, [Validators.required]],
+      email: [undefined, [Validators.pattern(Pattern.EMAIL)]],
       fullName: [undefined, [Validators.required, Validators.pattern(Pattern.ALPHABET_ONLY)]],
       password: [undefined, Validators.required, Validators.min(6)],
       confirmPassword: [undefined, [Validators.required, Validators.min(6)]],
-      number: [undefined, [Validators.required, Validators.pattern(Pattern.NUMBER_MOBILE)]],
+      number: [undefined, [Validators.pattern(Pattern.NUMBER_MOBILE)]],
       batch: [currentYear, Validators.required],
     });
   }
@@ -66,10 +66,11 @@ export class RegisterComponent implements OnInit {
             }
         );
       this.loaderService.hideLoader();
-      } , async (error) => {
+      } , async (res) => {
+        console.log(res);
         await this.loaderService.hideLoader();
-        console.log(error);
-        await this.toastService.presentToast(error.error.error, CommonConstant.ERROR);
+        console.log(res.message);
+        await this.toastService.presentToast(res.error.message, CommonConstant.ERROR);
       });
    }
   }
@@ -84,7 +85,7 @@ export class RegisterComponent implements OnInit {
      this.errorList.push(ValidationMessage.CONFIRM_PASSWORD);
    }
     if (this.errorList.length > 0) {
-      await this.modalService.openModal(CommonModalComponent, CommonConstant.ERROR, this.errorList);
+      await this.modalService.openModal(CommonModalComponent, CommonConstant.ERROR, 'Invalid Detail', this.errorList);
     }
     return this.errorList.length === 0;
   }

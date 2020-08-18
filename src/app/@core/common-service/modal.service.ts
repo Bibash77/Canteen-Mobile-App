@@ -1,5 +1,5 @@
 import {Injectable, Type} from '@angular/core';
-import {ModalController} from "@ionic/angular";
+import {ModalController} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,19 @@ export class ModalService{
 
   constructor(private modalController: ModalController) { }
 
-  async openModal(openingComponent: Type<any> , title , values) {
+  async openModal(openingComponent: Type<any> , status , title , values) {
     const modal = await this.modalController.create({
       component: openingComponent,
-      componentProps: {modalTitle: title , data: values}
+      componentProps: {modalTitle: title , data: values , status}
+    });
+    this.openedModal = modal;
+    return await modal.present();
+  }
+
+  async openCustomModal(openingComponent: Type<any> , data) {
+    const modal = await this.modalController.create({
+      component: openingComponent,
+      componentProps: {data}
     });
     this.openedModal = modal;
     return await modal.present();

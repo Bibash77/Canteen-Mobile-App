@@ -1,0 +1,81 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-title>{{data.itemName |titlecase}} Detail</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  <ion-content class="item-page">
+    <div class="ion-padding">
+      <ion-row class="productImage">
+        <ion-img src="assets/img/bg.jpg" style="width: 100%"></ion-img>
+      </ion-row>
+      <ion-row>
+    <ion-col size="6">
+      <div class="count">
+               <span class="item-count" (click)="addQuantity()">
+                    +
+                </span>
+        <span class="item-count show-count">
+                    {{count}}
+                </span>
+        <span class="item-count" (click)="removeQuantity()">
+                    -
+                </span>
+      </div>
+</ion-col>
+       <!-- <ion-col size="3">
+          <ion-chip outline [color]="inStock ? 'primary': 'warning'">
+            <ion-icon name="restaurant"></ion-icon>
+            <ion-label>{{inStock ? 'Available': 'Not Available'}}</ion-label>
+            <ion-icon *ngIf="data.itemStatus == 'INSTOCK'" name="close-circle"></ion-icon>
+          </ion-chip>
+        </ion-col>-->
+        <ion-col size="6">
+          <ion-chip outline color="primary">
+            <ion-icon name="restaurant"></ion-icon>
+            <ion-label>Cooking time: {{data.cookingTime}}</ion-label>
+            <ion-icon name="close-circle"></ion-icon>
+          </ion-chip>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="ion-padding ion-text-center">
+      <ion-row>
+        <ion-col size="6">
+         <ion-item> {{"Item price"}} </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="ion-float-right">Rs.<p class="prod-color">{{ data.price}}</p></ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+         <ion-item> {{"Qty"}} </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="ion-float-right"><p class="prod-color">{{ count }} </p> Unit</ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item> {{"Special offer"}} </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="ion-float-right"><p class="prod-color">No Offer</p></ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item> {{"Total"}} </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="ion-float-right">Rs.<p class="prod-color">{{ data.price * count}}</p></ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button *ngIf="inStock" class="ion-no-margin" expand="block" type="submit" (click)="orderItem()">Order</ion-button>
+     <ion-text *ngIf="!inStock" class="ion-text-center" color="danger">Item is Out Of Stock<ion-icon icon="alert"></ion-icon></ion-text>
+    </div>
+
+</ion-content>

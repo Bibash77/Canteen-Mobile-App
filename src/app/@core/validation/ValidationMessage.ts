@@ -9,7 +9,9 @@ export class ValidationMessage {
       required: 'Full Name is required',
       pattern: 'Full Name must be Alphabet Only'
     } ,
-
+    email: {
+      pattern: 'invalid email'
+    } ,
     userName: {
       required: 'Username is required',
       pattern: ''

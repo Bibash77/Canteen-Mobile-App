@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ToastController} from "@ionic/angular";
+import {ToastController} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class ToastService {
 
   async presentToast(message , color: string) {
     const toast = await this.toastController.create({
-        message, duration : 10000, color , position: 'top'
+        message, duration : 5000, color , position: 'top'
     });
     await toast.present();
   }

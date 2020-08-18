@@ -1,4 +1,4 @@
-import {UserType} from "../@core/Enum/userType";
+import {UserType} from '../@core/Enum/userType';
 
 export class User {
   id: number;

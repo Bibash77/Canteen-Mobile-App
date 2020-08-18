@@ -10,8 +10,8 @@ import {ApiConfig} from '../../@core/utils/ApiConfig';
 import {LoadingController, NavController} from '@ionic/angular';
 import {LoaderService} from '../../@core/Loader.service';
 import {ActionConstants} from '../../@core/constatnts/ActionConstants';
-import {ToastService} from "../../@core/common-service/toast.service";
-import {CommonConstant} from "../../@core/constatnts/CommonConstant";
+import {ToastService} from '../../@core/common-service/toast.service';
+import {CommonConstant} from '../../@core/constatnts/CommonConstant';
 
 @Component({
   selector: 'app-login',

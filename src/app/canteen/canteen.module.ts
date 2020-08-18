@@ -6,11 +6,13 @@ import {IonicModule} from '@ionic/angular';
 import {CanteenComponent} from './canteen.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {ProductDetailComponent} from './product-detail/product-detail.component';
+import {NotificationComponent} from './notification/notification.component';
 
 
 
 @NgModule({
-  declarations: [CanteenComponent , HomeComponent],
+  declarations: [CanteenComponent , HomeComponent , ProductDetailComponent , NotificationComponent],
   imports: [
     CommonModule, FormsModule, IonicModule, RouterModule , CanteenRoutingModule
   ]

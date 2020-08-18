@@ -8,7 +8,7 @@ export class AppMenu {
     },
     {
       title : 'Notification',
-      url   : '/chat',
+      url   : '/canteen/notification',
       icon  : 'notifications'
     },
     {
@@ -18,7 +18,7 @@ export class AppMenu {
     },
     {
       title: 'Transaction',
-      url: '/transaction',
+      url: '/canteen/transaction-detail',
       icon: 'cart',
     },
     {

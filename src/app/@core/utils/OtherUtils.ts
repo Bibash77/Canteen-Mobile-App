@@ -11,4 +11,8 @@ export class OtherUtils {
     }
     return totalYear;
   }
+
+  static resetUserWallet(){
+
+  }
 }

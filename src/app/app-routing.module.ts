@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {ExploreContainerComponent} from './explore-container/explore-container.component';
 import {LoginPage} from './auth/login/login.page';
-import {RegisterComponent} from "./auth/register/register.component";
+import {RegisterComponent} from './auth/register/register.component';
 
 const routes: Routes = [
   {

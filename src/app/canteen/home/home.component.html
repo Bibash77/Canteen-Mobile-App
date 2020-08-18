@@ -3,7 +3,41 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Divya Gyan College</ion-title>
+    <ion-title>Divya Canteen</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <ion-searchbar placeholder="{{'Type Item Name'}}">
+  </ion-searchbar>
+    <!-- second-row -->
+  <ion-list *ngFor="let item of items ; let i=index ">
+    <!-- list -->
+    <ion-item class="ion-text-wrap" (click)="prodDetail(item)">
+      <!-- item -->
+      <ion-row class="catagory">
+        <!-- row -->
+        <ion-col size="5">
+          <!-- col with 50  width -->
+          <img src="assets/img/bg.jpg" alt="foodname" />
+        </ion-col>
+        <ion-col size="6">
+          <!-- col with 50% width -->
+
+          <ion-text color="primary">
+            <h5 >{{item?.itemName |titlecase}}</h5>
+          </ion-text>
+          <p class="item-detail ion-text-wrap">
+            <span>{{"very good item with a delicious flavour "}}</span>
+          </p>
+          <p class="item-detail">{{"Price : Rs"}}
+            <span class="prod-color">{{item?.price}}</span>
+          </p>
+        </ion-col>
+      </ion-row>
+
+      <!--end row -->
+    </ion-item>
+    <!-- item -->
+  </ion-list>
+</ion-content>
