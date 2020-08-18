@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ItemService} from '../service/item.service';
+import {ItemService} from '../../@core/service/item.service';
 import {Item} from '../modal/Item';
 import {Router} from '@angular/router';
 import {ModalService} from '../../@core/common-service/modal.service';

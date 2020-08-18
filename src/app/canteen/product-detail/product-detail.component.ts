@@ -8,7 +8,7 @@ import {LocalStorageUtil} from '../../@core/utils/local-storage-util';
 import {OtherUtils} from '../../@core/utils/OtherUtils';
 import {ToastService} from '../../@core/common-service/toast.service';
 import {CommonConstant} from '../../@core/constatnts/CommonConstant';
-import {OrderService} from '../service/order.service';
+import {OrderService} from '../../@core/service/order.service';
 
 @Component({
   selector: 'app-product-detail',

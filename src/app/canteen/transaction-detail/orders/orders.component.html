@@ -1,25 +1,41 @@
-<!--
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button (click)="onBack()"></ion-back-button>
-      <ion-button>
-        <ion-icon name="arrow-back-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Orders</ion-title>
-  </ion-toolbar>
-</ion-header>
--->
-
 <ion-content>
-  <!--<div *ngIf="!isOrders()">
+  <div *ngIf="this.totalPages < 0">
     <div class="empty-list">
-      <ion-icon class="empty-cart" name="timer" item-left></ion-icon>
-      <p>{{"No Orders" | translate}} </p>
+      <ion-icon class="empty-cart ion-float-left" name="timer"></ion-icon>
+      <p>{{"No Orders"}} </p>
     </div>
-  </div>-->
 
+  </div>
 
+  <div *ngFor="let order of orders">
+    <ion-card class="orders-item">
+      <h5>Order Code: <strong>{{order?.orderCode}}</strong></h5>
+      <ion-row>
+        <ion-col size="6" class="ion-no-padding">
+          <p class="item-name">Total Amount:<strong>
+           Rs. {{order?.expenditure | number}}</strong></p>
+        </ion-col>
+        <ion-col size="6" class="ion-no-padding">
+          <h6 class="item-name">Ordered Date:<strong>{{order?.createdAt | date}}</strong></h6>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" class="ion-no-padding">
 
+          <p>Status: <ion-chip [color]="color[order.orderStatus]">
+            <ion-icon name="restaurant"></ion-icon>
+            <ion-label>{{order?.orderStatus}}</ion-label>
+          </ion-chip></p>
+        </ion-col>
+        <ion-col size="6" class="ion-no-padding detail-button">
+          <ion-button color="secondary" size="small" expand="block">Order Details</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

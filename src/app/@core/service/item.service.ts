@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BaseService} from '../../@core/BaseService';
-import {Item} from '../modal/Item';
+import {BaseService} from '../BaseService';
+import {Item} from '../../canteen/modal/Item';
 
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchDto} from '../../../Modal/SearchDto';
 import {ActivatedRoute} from '@angular/router';
-import {TopUpHistoryService} from '../../service/top-up-history.service';
+import {TopUpHistoryService} from '../../../@core/service/top-up-history.service';
 import {NavController} from '@ionic/angular';
 
 @Component({

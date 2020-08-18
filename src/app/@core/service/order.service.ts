@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {OrderDto} from '../../modal/orderDto';
+import {OrderDto} from '../../Modal/orderDto';
 import {Observable} from 'rxjs';
-import {BaseService} from '../../@core/BaseService';
-import {ApiUtils} from '../../@core/utils/ApiUtils';
+import {BaseService} from '../BaseService';
+import {ApiUtils} from '../utils/ApiUtils';
 
 @Injectable({
   providedIn: 'root'
